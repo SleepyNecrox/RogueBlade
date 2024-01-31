@@ -261,12 +261,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de743fd55673cc54ca9d49da0f9a253e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WallSlideSpeed: 5
+  WallSlideSpeed: 4
   speed: 10
   JumpForce: 15
   wallJumpingTime: 0.2
-  wallJumpingDuration: 0.4
-  wallJumpingPower: {x: 8, y: 16}
+  wallJumpingDuration: 0.45
+  wallJumpingPower: {x: 10, y: 13}
   rb: {fileID: 2620938168813237824}
   m_CeilingCheck: {fileID: 1427981231418884020}
   groundCheck: {fileID: 4359271993790856940}
