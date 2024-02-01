@@ -7758,6 +7758,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2620938168813237824, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_Size.x
+      value: 0.946867
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9272289
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.008061409
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.51017094
+      objectReference: {fileID: 0}
     - target: {fileID: 7562584085868927311, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Name
       value: 'Player '
@@ -7804,79 +7824,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Size.x
-      value: 0.98592186
+      value: 0.94319725
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Size.y
-      value: 1.9579773
+      value: 1.9264393
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.x
-      value: -0.010775566
+      value: 0.007115364
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0018863678
+      value: 0.013882637
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6860791811933700701, guid: 7970458643502b641939022011f461d9, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7562584085868927311, guid: 7970458643502b641939022011f461d9, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 1590131278}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7970458643502b641939022011f461d9, type: 3}
---- !u!1 &1590131277 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7562584085868927311, guid: 7970458643502b641939022011f461d9, type: 3}
-  m_PrefabInstance: {fileID: 1590131276}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1590131278
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590131277}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 571e6c8c6cf897243bc39fb5ef38cc07, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.011564255, y: -0.5567789}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.98612213, y: 0.8864422}
-  m_EdgeRadius: 0
 --- !u!4 &1590131283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7777890859979670049, guid: 7970458643502b641939022011f461d9, type: 3}
