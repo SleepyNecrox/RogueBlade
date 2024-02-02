@@ -299,11 +299,6 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
---- !u!1 &786685227 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7562584085868927311, guid: 7970458643502b641939022011f461d9, type: 3}
-  m_PrefabInstance: {fileID: 1590131276}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &817463744
 GameObject:
   m_ObjectHideFlags: 0
@@ -7773,7 +7768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Size.y
-      value: 0.9272289
+      value: 0.04561615
       objectReference: {fileID: 0}
     - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.x
@@ -7781,7 +7776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.y
-      value: -0.51017094
+      value: -0.9509773
       objectReference: {fileID: 0}
     - target: {fileID: 7562584085868927311, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Name
@@ -7833,7 +7828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Size.y
-      value: 1.9264393
+      value: 1.9698982
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.x
@@ -7841,57 +7836,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.y
-      value: 0.013882637
+      value: -0.007846832
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7562584085868927311, guid: 7970458643502b641939022011f461d9, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7777890859979670049, guid: 7970458643502b641939022011f461d9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1590131289}
+      addedObject: {fileID: 1692627362}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7970458643502b641939022011f461d9, type: 3}
 --- !u!4 &1590131283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7777890859979670049, guid: 7970458643502b641939022011f461d9, type: 3}
   m_PrefabInstance: {fileID: 1590131276}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &1590131289
-CircleCollider2D:
+--- !u!1 &1692627361
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786685227}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 571e6c8c6cf897243bc39fb5ef38cc07, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5077591}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692627362}
+  m_Layer: 0
+  m_Name: Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1692627362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692627361}
   serializedVersion: 2
-  m_Radius: 0.4922409
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.049, y: -0.991, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1590131283}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846415077
 GameObject:
   m_ObjectHideFlags: 0
