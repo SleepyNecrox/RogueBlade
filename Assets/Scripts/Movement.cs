@@ -27,6 +27,14 @@ public class Movement : MonoBehaviour
     [SerializeField] private float wallJumpingDuration = 0.4f;
     [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
+    private bool canDash = true;
+    private bool isDashing;
+
+    [SerializeField]private float dashPower = 24f;
+    [SerializeField]private float dashTime = 0.2f;
+
+    [SerializeField]private float dashCD = 1f;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform m_CeilingCheck;					
     [SerializeField] private Transform groundCheck;
@@ -39,6 +47,12 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if(isDashing)
+        {
+            return;
+        }
+
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (IsGrounded())
@@ -82,10 +96,21 @@ public class Movement : MonoBehaviour
         {
             Flip();
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (canDash))
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     private void FixedUpdate()
     {
+        if(isDashing)
+        {
+            return;
+            
+        }
+
 
         if (!isWallJumping)
         {
@@ -172,5 +197,19 @@ public class Movement : MonoBehaviour
         isJumping = true;
         yield return new WaitForSeconds(0.4f);
         isJumping = false;
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        yield return new WaitForSeconds(dashTime);
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashCD);
+        canDash = true;
     }
 }
