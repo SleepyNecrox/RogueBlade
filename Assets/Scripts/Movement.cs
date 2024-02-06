@@ -22,8 +22,8 @@ public class Movement : MonoBehaviour
 
     private bool isWallJumping;
     private float wallJumpingDirection;
-    [SerializeField] private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
+    [SerializeField] private float wallJumpingTime = 0.2f;
     [SerializeField] private float wallJumpingDuration = 0.4f;
     [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
@@ -35,17 +35,20 @@ public class Movement : MonoBehaviour
 
     [SerializeField]private float dashCD = 1f;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform m_CeilingCheck;					
+    [SerializeField] private Rigidbody2D rb;					
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-
     [SerializeField] private Transform wallCheck;
-
     [SerializeField] private LayerMask wallLayer;
 
 
-    private void Update()
+    [SerializeField] private Collider2D StandingCollider;
+    [SerializeField] private Transform m_CeilingCheck;
+    [SerializeField]private float crouchSpeed = 0.5f;
+    private bool isCrouching;
+
+
+    private void Update() //inputs w/ timers for coyote/jumpbuffer
     {
         if(isDashing)
         {
@@ -64,7 +67,7 @@ public class Movement : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !isCrouching)
         {
             jumpBufferCounter = jumpBufferTime;
         }
@@ -89,6 +92,13 @@ public class Movement : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
+        if (Input.GetButtonDown("Crouch"))
+            isCrouching = true;
+    
+        else if (Input.GetButtonUp("Crouch"))
+            isCrouching = false;
+
+        Crouched();
         WallSlide();
         WallJump();
 
@@ -103,7 +113,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() //checking what the player is doing
     {
         if(isDashing)
         {
@@ -118,7 +128,21 @@ public class Movement : MonoBehaviour
         }
        
     }
+        
+    private void Crouched()
+    {
+        if(isCrouching || Physics2D.OverlapCircle(m_CeilingCheck.position, 0.1f ,groundLayer))
+        {
+            StandingCollider.enabled = false;
+            speed = 4f;
+        }
 
+        else
+        {
+            StandingCollider.enabled = true;
+            speed = 8f;
+        }
+    }
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);

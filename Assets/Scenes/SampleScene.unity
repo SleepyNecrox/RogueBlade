@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 857985574}
   - component: {fileID: 857985573}
   - component: {fileID: 857985575}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Death Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7796,6 +7796,14 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.67469406
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170305653802000547, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6334629
+      objectReference: {fileID: 0}
     - target: {fileID: 4359271993790856940, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.06
@@ -7825,9 +7833,17 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5716230596821373760, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_CeilingCheck
+      value: 
+      objectReference: {fileID: 1744793965}
+    - target: {fileID: 5716230596821373760, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: wallJumpingTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5716230596821373760, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: StandingCollider
+      value: 
+      objectReference: {fileID: 1590131289}
     - target: {fileID: 5716230596821373760, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: wallJumpingPower.x
       value: 10
@@ -7850,11 +7866,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7777890859979670049, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.98
+      value: 36.442
       objectReference: {fileID: 0}
     - target: {fileID: 7777890859979670049, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.08
+      value: 16.037
       objectReference: {fileID: 0}
     - target: {fileID: 7777890859979670049, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7890,11 +7906,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Size.x
-      value: 0.62179375
+      value: 0.9971148
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Size.y
-      value: 1.0342331
+      value: 0.8660842
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Enabled
@@ -7902,15 +7918,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.x
-      value: -0.004761696
+      value: -0.0025587135
       objectReference: {fileID: 0}
     - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
       propertyPath: m_Offset.y
-      value: -0.4960556
+      value: -0.5424146
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869427613767162075, guid: 7970458643502b641939022011f461d9, type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7777890859979670049, guid: 7970458643502b641939022011f461d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744793965}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7562584085868927311, guid: 7970458643502b641939022011f461d9, type: 3}
       insertIndex: 4
@@ -7956,8 +7979,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.04027939}
-  m_Size: {x: 1, y: 1.91288}
+  m_Offset: {x: 0, y: -0.0024647713}
+  m_Size: {x: 1, y: 1.9983683}
   m_Direction: 0
 --- !u!96 &1590131295
 TrailRenderer:
@@ -8072,6 +8095,37 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &1744793964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744793965}
+  m_Layer: 0
+  m_Name: Ceiling Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1744793965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744793964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.053, y: 0.224, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1590131283}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846415077
 GameObject:
   m_ObjectHideFlags: 0
