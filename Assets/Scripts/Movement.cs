@@ -44,8 +44,26 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private Collider2D StandingCollider;
     [SerializeField] private Transform m_CeilingCheck;
-    [SerializeField]private float crouchSpeed = 0.5f;
+
+    [SerializeField] private TrailRenderer tr;
+
     private bool isCrouching;
+
+    //AudioManager audiomanager;
+
+    private Animator anim;
+
+    private void Start()
+    {
+        tr.emitting = false;
+        
+    }
+
+    // private void Awake()
+    // {
+    //     audiomanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    //     anim = GetComponent<Animator>();
+    // }
 
 
     private void Update() //inputs w/ timers for coyote/jumpbuffer
@@ -57,6 +75,8 @@ public class Movement : MonoBehaviour
 
 
         horizontal = Input.GetAxisRaw("Horizontal");
+
+        //anim.SetBool("Run", horizontal != 0);
 
         if (IsGrounded())
         {
@@ -87,16 +107,20 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
+            //audiomanager.PlaySFX(audiomanager.Jump);
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-
             coyoteTimeCounter = 0f;
         }
+
+        //anim.SetBool("Jump", rb.velocity.y > 0f);
 
         if (Input.GetButtonDown("Crouch"))
             isCrouching = true;
     
         else if (Input.GetButtonUp("Crouch"))
             isCrouching = false;
+
+        //anim.SetBool("Crouch", isCrouching == true);
 
         Crouched();
         WallSlide();
@@ -109,6 +133,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && (canDash))
         {
+            //audiomanager.PlaySFX(audiomanager.Dash);
             StartCoroutine(Dash());
         }
     }
@@ -131,7 +156,7 @@ public class Movement : MonoBehaviour
         
     private void Crouched()
     {
-        if(isCrouching || Physics2D.OverlapCircle(m_CeilingCheck.position, 0.1f ,groundLayer))
+        if(IsGrounded() && isCrouching || Physics2D.OverlapCircle(m_CeilingCheck.position, 0.1f ,groundLayer))
         {
             StandingCollider.enabled = false;
             speed = 4f;
@@ -230,10 +255,12 @@ public class Movement : MonoBehaviour
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        tr.emitting = true;
         yield return new WaitForSeconds(dashTime);
-        rb.gravityScale = originalGravity;
         isDashing = false;
+        rb.gravityScale = originalGravity;
         yield return new WaitForSeconds(dashCD);
+        tr.emitting = false;
         canDash = true;
     }
 }
