@@ -46,7 +46,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform m_CeilingCheck;
 
     [SerializeField] private TrailRenderer tr;
-
     private bool isCrouching;
 
     //AudioManager audiomanager;
@@ -59,11 +58,11 @@ public class Movement : MonoBehaviour
         
     }
 
-    // private void Awake()
-    // {
-    //     audiomanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    //     anim = GetComponent<Animator>();
-    // }
+    private void Awake()
+    {
+        //audiomanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+       anim = GetComponentInChildren<Animator>();
+    }
 
 
     private void Update() //inputs w/ timers for coyote/jumpbuffer
@@ -75,6 +74,18 @@ public class Movement : MonoBehaviour
 
 
         horizontal = Input.GetAxisRaw("Horizontal");
+
+        if(horizontal > 0 || horizontal < 0)
+        {
+            anim.SetBool("Walk", true);
+            anim.SetBool("Idle", false);
+        }
+
+        if(horizontal == 0)
+        {
+            anim.SetBool("Idle", true);
+            anim.SetBool("Walk", false);
+        }
 
         //anim.SetBool("Run", horizontal != 0);
 

@@ -11,6 +11,8 @@ public class PlayerTeleporter : MonoBehaviour
     private Transition transition;
     private Rigidbody2D rb;
 
+    internal bool isTeleporting;
+
     private void Awake()
     {
         transition = FindObjectOfType<Transition>();
@@ -23,6 +25,7 @@ public class PlayerTeleporter : MonoBehaviour
         {
             if (currentTeleporter != null)
             {
+                isTeleporting = true;
                 transition.StartTransition();
                 FreezeRigidbody();
                 tr.enabled = false;
@@ -62,6 +65,7 @@ public class PlayerTeleporter : MonoBehaviour
         lastTeleportTime = Time.time;
         tr.enabled = true;
         UnfreezeRigidbody();
+        isTeleporting = false;
     }
 
     private void FreezeRigidbody()
