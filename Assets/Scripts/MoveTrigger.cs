@@ -5,8 +5,6 @@ using UnityEngine;
 public class MoveTrigger : MonoBehaviour
 {
     public SpriteRenderer Sprite;
-
-
     private void Start()
     {
         Sprite.enabled = false;
@@ -15,6 +13,7 @@ public class MoveTrigger : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            //Debug.Log("Entered");
              if (Sprite != null)
             {
                 Sprite.enabled = true;

@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     private bool isWallSliding;
     [SerializeField] private float WallSlideSpeed = 2f;
 
-    [SerializeField] private float speed = 8f;
+    [SerializeField] internal float speed;
     [SerializeField] private float JumpForce = 16f;
 
     private bool isWallJumping;
